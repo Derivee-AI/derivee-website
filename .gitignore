@@ -8,3 +8,5 @@ out
 .DS_Store
 .env*
 !.env.example
+
+.agents
