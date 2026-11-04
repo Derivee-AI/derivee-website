@@ -1,0 +1,41 @@
+.rosette {
+  width: 100%;
+  height: 100%;
+  color: var(--deep-green);
+  overflow: visible;
+}
+
+.slow {
+  transform-origin: 310px 310px;
+  animation: rotate 160s linear infinite;
+}
+
+.fast {
+  transform-origin: 310px 310px;
+  animation: rotateReverse 210s linear infinite;
+}
+
+.petals {
+  transform-origin: 310px 310px;
+  animation: rotate 120s linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateReverse {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slow,
+  .fast,
+  .petals {
+    animation: none;
+  }
+}

@@ -1,0 +1,10 @@
+node_modules
+.next
+out
+.tools
+.netlify
+*.log
+*.zip
+.DS_Store
+.env*
+!.env.example

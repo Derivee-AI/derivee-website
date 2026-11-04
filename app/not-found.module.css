@@ -1,0 +1,215 @@
+.page {
+  --night: #08090b;
+  --bone: #f6f5f1;
+  --brass: #d4a249;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  overflow: hidden;
+  color: var(--bone);
+  background:
+    radial-gradient(
+      ellipse at 72% 18%,
+      rgba(212, 162, 73, 0.07),
+      transparent 46%
+    ),
+    var(--night);
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 78px;
+  padding: 0 clamp(20px, 3.2vw, 52px);
+  border-bottom: 1px solid rgba(246, 245, 241, 0.11);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.logo {
+  width: auto;
+  height: 27px;
+}
+
+.city {
+  padding-left: 15px;
+  border-left: 1px solid rgba(246, 245, 241, 0.2);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  color: rgba(246, 245, 241, 0.42);
+}
+
+.meta {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 8px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(246, 245, 241, 0.4);
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1100px;
+  padding: clamp(64px, 10vh, 120px) clamp(20px, 3.2vw, 52px);
+}
+
+.eyebrow {
+  margin-bottom: clamp(24px, 4vh, 40px);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+
+.body h1 {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: clamp(4rem, 9vw, 9.5rem);
+  font-weight: 400;
+  line-height: 0.84;
+  letter-spacing: -0.045em;
+}
+
+.body h1 em {
+  color: var(--brass);
+  font-style: normal;
+}
+
+.sub {
+  max-width: 42ch;
+  margin-top: clamp(30px, 4.8vh, 48px);
+  font-size: clamp(13px, 1.05vw, 15px);
+  line-height: 1.7;
+  color: rgba(246, 245, 241, 0.56);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-top: clamp(28px, 4vh, 42px);
+}
+
+.primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 47px;
+  padding: 0 19px;
+  background: var(--brass);
+  color: var(--night);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  transition:
+    background 220ms ease,
+    transform 220ms ease;
+}
+
+.primary svg {
+  width: 11px;
+  height: 11px;
+}
+
+.primary:hover {
+  background: var(--bone);
+  transform: translateY(-1px);
+}
+
+.secondary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 13px 0;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: rgba(246, 245, 241, 0.7);
+}
+
+.secondaryLine {
+  position: absolute;
+  right: 0;
+  bottom: 8px;
+  left: 0;
+  height: 1px;
+  background: rgba(246, 245, 241, 0.25);
+  transition: background 220ms ease;
+}
+
+.secondary:hover .secondaryLine {
+  background: var(--brass);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 48px;
+  padding: 0 clamp(20px, 3.2vw, 52px);
+  border-top: 1px solid rgba(246, 245, 241, 0.11);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(246, 245, 241, 0.3);
+}
+
+@media (max-width: 480px) {
+  .header {
+    min-height: 68px;
+    padding: 0 18px;
+  }
+
+  .logo {
+    height: 24px;
+  }
+
+  .city {
+    display: none;
+  }
+
+  .body {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .primary {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .footer {
+    padding: 14px 18px;
+    flex-direction: column;
+    gap: 6px;
+  }
+}
